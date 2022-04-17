@@ -9,7 +9,7 @@ RUN yum install -y libvirt-devel \
         sudo \
         epel-release \
         python3 \
-		
+		firewalld-filesystem \
     && yum clean all
 
 RUN rpm -ivh https://rpmfind.net/linux/centos/7.9.2009/extras/x86_64/Packages/dpdk-18.11.2-1.el7.x86_64.rpm
