@@ -11,6 +11,8 @@ services:
         username: appliance
     image: "appliance:${VER}"
     privileged: true
+    cap_add:
+      - CAP_SYS_ADMIN
     pid: host
     security_opt:
      - no-new-privileges:false
@@ -32,6 +34,7 @@ services:
      - "/var/lib/appliance/applications:/var/lib/appliance/applications"
      - "/usr/local/var/run/openvswitch:/usr/local/var/run/openvswitch"
      - "/var/run/openvswitch:/var/run/openvswitch"
+     – "/sys/fs/cgroup:/sys/fs/cgroup:ro"
     environment:
      - SYSLOG_ADDR=syslog.openness
      - HOST_HOSTNAME=${HOSTNAME}
