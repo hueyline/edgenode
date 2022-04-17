@@ -13,14 +13,13 @@ RUN yum install -y libvirt-devel \
 		httpd \
 		vsftpd \
     && yum clean all
-RUN systemctl start vsftpd
-RUN systemctl status firewalld
-RUN rpm -ivh https://rpmfind.net/linux/centos/7.9.2009/extras/x86_64/Packages/dpdk-18.11.2-1.el7.x86_64.rpm
-RUN rpm -ivh https://cbs.centos.org/kojifiles/packages/openvswitch/2.12.0/1.el7/x86_64/openvswitch-2.12.0-1.el7.x86_64.rpm \
-https://cbs.centos.org/kojifiles/packages/openvswitch/2.12.0/1.el7/x86_64/openvswitch-devel-2.12.0-1.el7.x86_64.rpm \
-https://cbs.centos.org/kojifiles/packages/ovn/2.12.0/3.el7/x86_64/ovn-2.12.0-3.el7.x86_64.rpm \
-https://cbs.centos.org/kojifiles/packages/ovn/2.12.0/3.el7/x86_64/ovn-central-2.12.0-3.el7.x86_64.rpm \
-https://cbs.centos.org/kojifiles/packages/ovn/2.12.0/3.el7/x86_64/ovn-vtep-2.12.0-3.el7.x86_64.rpm
+
+RUN rpm -ivh http://repo.unitrends.com/centos/7.6.1810/extras/x86_64/Packages/dpdk-18.11-2.el7_6.x86_64.rpm
+RUN rpm -ivh https://cbs.centos.org/kojifiles/packages/openvswitch/2.11.0/4.el7/x86_64/openvswitch-2.11.0-4.el7.x86_64.rpm \
+https://cbs.centos.org/kojifiles/packages/openvswitch/2.11.0/4.el7/x86_64/openvswitch-devel-2.11.0-4.el7.x86_64.rpm \
+https://cbs.centos.org/kojifiles/packages/ovn/2.11.0/7.el7/x86_64/ovn-2.11.0-7.el7.x86_64.rpm \
+https://cbs.centos.org/kojifiles/packages/ovn/2.11.0/7.el7/x86_64/ovn-central-2.11.0-7.el7.x86_64.rpm \
+https://cbs.centos.org/kojifiles/packages/ovn/2.11.0/7.el7/x86_64/ovn-vtep-2.11.0-7.el7.x86_64.rpm
 
 FROM appliance-deps-image
 
