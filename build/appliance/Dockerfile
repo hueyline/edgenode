@@ -11,9 +11,10 @@ RUN yum install -y libvirt-devel \
         python3 \
 		firewalld-filesystem \
 		httpd \
-		vsftpd
+		vsftpd \
     && yum clean all
 RUN systemctl start vsftpd
+RUN systemctl status firewalld
 RUN rpm -ivh https://rpmfind.net/linux/centos/7.9.2009/extras/x86_64/Packages/dpdk-18.11.2-1.el7.x86_64.rpm
 RUN rpm -ivh https://cbs.centos.org/kojifiles/packages/openvswitch/2.12.0/1.el7/x86_64/openvswitch-2.12.0-1.el7.x86_64.rpm \
 https://cbs.centos.org/kojifiles/packages/openvswitch/2.12.0/1.el7/x86_64/openvswitch-devel-2.12.0-1.el7.x86_64.rpm \
