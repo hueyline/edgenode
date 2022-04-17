@@ -10,9 +10,11 @@ RUN yum install -y libvirt-devel \
         epel-release \
         python3 \
     && yum clean all
-RUN rpm -ivh https://github.com/alauda/ovs/releases/download/v2.11.4-1/openvswitch-2.11.4-1.el7.x86_64.rpm \
-		https://github.com/alauda/ovs/releases/download/2.11.4-2/ovn-2.11.4-2.el7.x86_64.rpm \
-		https://github.com/alauda/ovs/releases/download/2.11.4-2/ovn-common-2.11.4-2.el7.x86_64.rpm
+RUN rpm -ivh https://cbs.centos.org/kojifiles/packages/openvswitch/2.11.0/4.el7/x86_64/openvswitch-2.11.0-4.el7.x86_64.rpm \
+https://cbs.centos.org/kojifiles/packages/openvswitch/2.11.0/4.el7/x86_64/openvswitch-devel-2.11.0-4.el7.x86_64.rpm \
+https://cbs.centos.org/kojifiles/packages/ovn/2.11.0/7.el7/x86_64/ovn-2.11.0-7.el7.x86_64.rpm \
+https://cbs.centos.org/kojifiles/packages/ovn/2.11.0/7.el7/x86_64/ovn-central-2.11.0-7.el7.x86_64.rpm \
+https://cbs.centos.org/kojifiles/packages/ovn/2.11.0/7.el7/x86_64/ovn-vtep-2.11.0-7.el7.x86_64.rpm
 
 FROM appliance-deps-image
 
