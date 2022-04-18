@@ -109,7 +109,7 @@ services:
     network_mode: bridge
 
   syslog-ng:
-    image:  balabit/syslog-ng:3.19.1
+    image:  balabit/syslog-ng:3.21.1
     read_only: true
     volumes:
       - "/var/lib/appliance/configs/syslog-ng.conf:/etc/syslog-ng/syslog-ng.conf:ro"
