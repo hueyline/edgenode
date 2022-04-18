@@ -3,15 +3,15 @@
 
 FROM centos:7.6.1810 AS appliance-deps-image
 
+VOLUME ["/sys/fs/cgroup"]
 RUN yum install -y libvirt-devel \
         pciutils which \
         unbound openssl \
         sudo \
         epel-release \
         python3 \
+		firewalld \
 		firewalld-filesystem \
-		httpd \
-		vsftpd \
     && yum clean all
 
 RUN rpm -ivh http://repo.unitrends.com/centos/7.6.1810/extras/x86_64/Packages/dpdk-18.11-2.el7_6.x86_64.rpm
